@@ -8,23 +8,27 @@ import urllib
 import pyodbc
 import pandas as pd
 from datetime import datetime,date, timedelta
+import os
 
+print(os.environ)
 
 headers = {
     'accept': "application/json",
-    'x-apikey': "AZKPtaz4QsRxT66E01W26OvEQF4ncfmC",
+    'x-apikey': os.getenv('PYTHON_LYTX_API_KEY'),
     'content-type': "application/json"
     }
 
 
     
 # Settings----------------------------
-TargetServer = 'nfiv-sqldw-01d'
+
+TargetServer = os.getenv('PYTHON_DW_01_SERVER')
 SchemaName = 'stage.'
 TargetDb = 'LYTXDriveCam'
 TableName = 'tbLYTXEventsData'
-UserName = 'BI_ETLUser'
-Password = 'BI_ETLUser'
+UserName = os.getenv('PYTHON_DW_01_USER')
+Password = os.getenv('PYTHON_DW_01_PASS')
+
 
 
 #url = 'https://lytx-api.prod7.lv.lytx.com/video/safety/events?limit=1000&includeSubgroups=true&sortBy=lastUpdatedDate&sortDirection=desc&dateOption=lastUpdatedDate&to={0}&from={1}&page='.format(toDate,lastReadDate)
