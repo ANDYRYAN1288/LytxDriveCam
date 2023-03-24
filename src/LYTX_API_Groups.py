@@ -26,7 +26,7 @@ Password = os.getenv('PYTHON_DW_01_PASS')
 #Log Variable
 LogMessage = 'Process Starting'
 LogMessageType = 'Message'
-ProcessName  = 'LYTX_API_Behaviors.py'
+ProcessName  = 'LYTX_API_Groups.py'
 
 
 url = 'https://lytx-api.prod7.lv.lytx.com/groups?limit=100&includeSubgroups=true&groupOption=id&page='
