@@ -13,6 +13,7 @@ import os
 print('1')
 print('2')
 print('3')
+print('4')
 headers = {
     'accept': "application/json",
     'x-apikey': os.getenv('PYTHON_LYTX_API_KEY'),
