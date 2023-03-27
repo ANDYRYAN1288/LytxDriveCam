@@ -12,6 +12,7 @@ import os
 #test andy 2
 print('1')
 print('2')
+print('3')
 headers = {
     'accept': "application/json",
     'x-apikey': os.getenv('PYTHON_LYTX_API_KEY'),
