@@ -38,18 +38,19 @@ timezone = '.00Z'
 timeformat = 'T00:00:00.00Z'
 JSOnFolderPath = os.getenv('PYTHON_LYTX_FOLDER_EVENT')
 
+print(JSOnFolderPath)
+
  #Log Variable
 LogMessage = 'Process Starting'
 LogMessageType = 'Message'
 ProcessName  = 'LYTX_API_Safety_Events.py'
 
-url = 'https://lytx-api.prod7.lv.lytx.com/video/safety/events?limit=1000&includeSubgroups=true&sortBy=lastUpdatedDate&sortDirection=desc&dateOption=lastUpdatedDate&to={0}&from={1}&page='.format(toDate,lastReadDate)
-
- 
 today = date.today() + timedelta(days=1)
 toDate = str(today)+timeformat
 
 now = datetime.now()
+
+
 
 Params = urllib.parse.quote_plus(r'DRIVER={SQL Server};SERVER=' + TargetServer + ';DATABASE=' + TargetDb + ';UID=' + UserName + ';PWD=' + Password)
 ConnStr = 'mssql+pyodbc:///?odbc_connect={}'.format(Params)
@@ -72,6 +73,12 @@ try:
     lastReadDate = pd.Timestamp(lastReadDate)
     lastReadDate = datetime.isoformat(lastReadDate)
     lastReadDate = str(lastReadDate + timezone)
+    
+    print(lastReadDate)
+    
+    url = 'https://lytx-api.prod7.lv.lytx.com/video/safety/events?limit=1000&includeSubgroups=true&sortBy=lastUpdatedDate&sortDirection=desc&dateOption=lastUpdatedDate&to={0}&from={1}&page='.format(toDate,lastReadDate)
+
+
     
     startPage = 1
     response = requests.get(url + str(startPage),headers=headers)
