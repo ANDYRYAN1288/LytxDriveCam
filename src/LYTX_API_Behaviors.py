@@ -9,7 +9,8 @@ import pyodbc
 import pandas as pd
 from datetime import datetime,date, timedelta
 import os
-#test andy
+#test andy 2
+print('1')
 headers = {
     'accept': "application/json",
     'x-apikey': os.getenv('PYTHON_LYTX_API_KEY'),
